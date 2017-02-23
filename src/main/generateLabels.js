@@ -47,7 +47,7 @@ function widthOfString(value, fontPath = '/System/Library/Fonts/SFNSText-Regular
       .widthOfString(value);
 }
 
-function getLuminosity(color) {
+export function getLuminosity(color) {
   if (color.indexOf('#') == 0) {
     color = color.slice(1);
   }
@@ -58,7 +58,7 @@ function getLuminosity(color) {
   const r = (rgb >> 16) & 0xff;
   const g = (rgb >> 8) & 0xff;
   const b = (rgb >> 0) & 0xff;
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b; // ITU-R BT.709
+  return Math.round(0.2126 * r + 0.7152 * g + 0.0722 * b); // ITU-R BT.709
 }
 
 function requestGithub(path = '/', options = {}) {
