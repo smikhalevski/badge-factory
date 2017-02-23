@@ -12,12 +12,14 @@ if (DEBUG) {
   }
 }
 
+const {PORT = 5000} = process.env;
+
 startServer(config);
 
 export function startServer(config) {
-  console.log(`Staring on port ${config.port}`);
+  console.log(`Staring on port ${PORT}`);
   express()
       .use(express.static(__dirname))
       .use(handleRequest.bind(undefined, config))
-      .listen(config.port);
+      .listen(PORT);
 }
