@@ -1,0 +1,9 @@
+{
+  "name": "badge-factory",
+  "description": "Tiny web service for generating badges from URL",
+  "repository": "https://github.com/smikhalevski/badge-factory",
+  "keywords": [
+    "badge",
+    "shield"
+  ]
+}
