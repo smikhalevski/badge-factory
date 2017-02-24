@@ -1,6 +1,5 @@
 import express from 'express';
 import {handleRequest} from './handleRequest';
-import config from './config.json';
 
 if (DEBUG) {
   if (module.hot) {
@@ -14,12 +13,12 @@ if (DEBUG) {
 
 const {PORT = 5000} = process.env;
 
-startServer(config);
+startServer();
 
-export function startServer(config) {
+export function startServer() {
   console.log(`Staring on port ${PORT}`);
   express()
       .use(express.static(__dirname))
-      .use(handleRequest.bind(undefined, config))
+      .use(handleRequest)
       .listen(PORT);
 }

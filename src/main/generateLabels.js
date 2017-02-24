@@ -1,23 +1,7 @@
-import fs from 'fs';
-import http from 'http';
-import https from 'https';
 import PDFDocument from 'pdfkit';
-import SVGO from 'svgo';
-import options from './config.json';
 
-requestGithub('/repos/:owner/:repo/labels?per_page=100', options)
-    .then(labels => {
-      const svgo = new SVGO;
-      for (const label of labels.slice(0, 1)) {
-        const filePath = `../../target/out/${label.name.toLowerCase().replace(/\s/g, '-')}.svg`;
-        const svg = createLabelSvg(label);
-        svgo.optimize(svg, result => fs.writeFileSync(filePath, result.data));
-      }
-    })
-    .catch(error => console.log(error.stack));
-
-function createLabelSvg(label) {
-  const textColor = getLuminosity(label.color) > .5 ? '000' : 'fff';
+export function createLabelSvg(label) {
+  const textColor = getLuminosity(label.color) > 128 ? '000' : 'fff';
   return `
     <svg xmlns="http://www.w3.org/2000/svg"
          width="${Math.round(widthOfString(label.name)) + 6}"
@@ -59,28 +43,4 @@ export function getLuminosity(color) {
   const g = (rgb >> 8) & 0xff;
   const b = (rgb >> 0) & 0xff;
   return Math.round(0.2126 * r + 0.7152 * g + 0.0722 * b); // ITU-R BT.709
-}
-
-function requestGithub(path = '/', options = {}) {
-  return new Promise((resolve, reject) => {
-    https
-        .get({
-          method: 'GET',
-          host: 'api.github.com',
-          ...options,
-          path: path.replace(/:[^/]+/g, part => options[part.slice(1)]),
-          headers: {
-            'User-Agent': '',
-            ...options.headers
-          }
-        }, res => {
-          if (res.statusCode >= 300) {
-            throw new Error(http.STATUS_CODES[res.statusCode]);
-          }
-          let json = '';
-          res.on('data', chunk => json += chunk);
-          res.on('end', () => resolve(JSON.parse(json)));
-        })
-        .on('error', reject);
-  });
 }
