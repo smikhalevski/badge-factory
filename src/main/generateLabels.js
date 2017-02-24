@@ -1,10 +1,12 @@
+import path from 'path';
+import fontPath from './verdana.ttf';
 import PDFDocument from 'pdfkit';
 
 export function createLabelSvg(label) {
   const textColor = getLuminosity(label.color) > 128 ? '000' : 'fff';
   return `
     <svg xmlns="http://www.w3.org/2000/svg"
-         width="${Math.round(widthOfString(label.name)) + 6}"
+         width="${Math.round(widthOfString(label.name)) + 4}"
          height="18">
       <rect fill="#${label.color}"
             rx="2"
@@ -24,11 +26,12 @@ export function createLabelSvg(label) {
   `;
 }
 
-function widthOfString(value, fontPath = '/System/Library/Fonts/SFNSText-Regular.otf') {
-  return new PDFDocument({size: 'A4', layout: 'landscape'})
-      .font(fontPath)
-      .fontSize(12)
-      .widthOfString(value);
+const document = new PDFDocument({size: 'A4', layout: 'landscape'})
+    .font(path.resolve(__dirname, fontPath))
+    .fontSize(12);
+
+function widthOfString(value) {
+  return document.widthOfString(value);
 }
 
 export function getLuminosity(color) {

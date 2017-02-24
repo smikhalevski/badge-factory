@@ -39,6 +39,7 @@
     "webpack": "beta",
     "babel-loader": "^6.2.10",
     "hson-loader": "",
+    "file-loader": "",
     "express": "^4.14.0",
     "pdfkit": "",
     "svgo": "",
