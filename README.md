@@ -6,8 +6,8 @@ Use URL format `https://badge-factory.herokuapp.com/github-label/:color/:name` t
 
 Examples:
 
-![enhancement](https://badge-factory.herokuapp.com/github-label/84b6eb/enhancement)
+![enhancement](https://badge-factory.herokuapp.com/github-label/84b6eb/enhancement) https://badge-factory.herokuapp.com/github-label/84b6eb/enhancement
 
-![bug](https://badge-factory.herokuapp.com/github-label/ee0701/bug)
+![bug](https://badge-factory.herokuapp.com/github-label/ee0701/bug) https://badge-factory.herokuapp.com/github-label/ee0701/bug
 
-![help wanted](https://badge-factory.herokuapp.com/github-label/128A0C/help%20wanted)
+![help wanted](https://badge-factory.herokuapp.com/github-label/128A0C/help wanted) [https://badge-factory.herokuapp.com/github-label/128A0C/help wanted](https://badge-factory.herokuapp.com/github-label/128A0C/help wanted)
