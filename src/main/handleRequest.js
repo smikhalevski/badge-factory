@@ -30,7 +30,7 @@ export function matchPath(pathname, path, options = {}) {
     url: path === '/' && url === '' ? '/' : url, // the matched portion of the URL
     isExact, // whether or not we matched exactly
     params: keys.reduce((params, key, index) => {
-      params[key.name] = values[index];
+      params[key.name] = decodeURIComponent(values[index]);
       return params;
     }, {})
   }
