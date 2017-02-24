@@ -1,4 +1,4 @@
-import {getLuminosity} from '../main/generateLabels';
+import {getLuminosity} from '../main/getLuminosity';
 
 describe('getLuminosity', () => {
 
