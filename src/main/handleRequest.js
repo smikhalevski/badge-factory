@@ -42,6 +42,7 @@ export function handleRequest(req, res, next) {
     const svgo = new SVGO;
     const svg = createLabelSvg(match.params);
     svgo.optimize(svg, result => {
+      res.header('Content-Type', 'image/svg+xml');
       res.send(result.data);
       res.end();
       next();
