@@ -48,6 +48,7 @@
     "pdfkit": "",
     "svgo": "",
     "request-promise": "",
+    "request": "",
     "tinycolor2": "",
     "safe-eval": "",
     "react": "^15.3.2",
