@@ -47,6 +47,7 @@
     "express": "^4.14.0",
     "pdfkit": "",
     "svgo": "",
+    "lodash": "",
     "request-promise": "",
     "request": "",
     "tinycolor2": "",

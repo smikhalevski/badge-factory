@@ -1,3 +1,4 @@
+import pick from 'lodash/pick';
 import PDFDocument from 'pdfkit';
 import parse from 'tinycolor2';
 
@@ -21,7 +22,8 @@ export function createContext() {
     decodeURIComponent,
     encodeURI,
     encodeURIComponent,
-    ...Math,
+
+    ...pick(Math, Object.getOwnPropertyNames(Math)),
 
     toColor:    color => parse(color).toString(ColorFormat.HEX),
     luminosity: color => parse(color).getLuminance(),
