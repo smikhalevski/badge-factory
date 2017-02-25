@@ -7,7 +7,7 @@ module.exports = {
   target: 'node',
   entry: [
     'webpack/hot/poll?1000',
-    './src/main/server.js'
+    './src/main/index.js'
   ],
   output: {
     path: './target/out',

@@ -5,7 +5,7 @@ const ASSET_TEST = /\.(jpg|png|gif|svg|ttf|woff)$/i;
 
 module.exports = {
   target: 'node',
-  entry: './src/main/server.js',
+  entry: './src/main/index.js',
   output: {
     path: './target/out',
     filename: 'server.js',

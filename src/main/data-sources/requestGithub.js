@@ -1,6 +1,6 @@
 import requestPromise from 'request-promise';
 
-function requestGithub(path = '/', options = {}) {
+export function requestGithub(path, options = {}) {
   return requestPromise({
     method: 'GET',
     baseUrl: 'https://api.github.com',

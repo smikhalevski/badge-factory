@@ -47,12 +47,9 @@
     "express": "^4.14.0",
     "pdfkit": "",
     "svgo": "",
-    "lodash": "",
     "request-promise": "",
-    "color": "",
-    "moment": "",
+    "tinycolor2": "",
     "safe-eval": "",
-    "path-to-regexp": "",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
