@@ -2,14 +2,22 @@
 
 Tiny web service for generating badges from URL.
 
-[![enhancement](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=84b6eb&name=enhancement&maxAge=5)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=84b6eb&name=enhancement)
-[![bug](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=ee0701&name=bug&maxAge=5)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=ee0701&name=bug)
-[![help wanted](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=128a0c&name=help%20wanted&maxAge=5)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=128a0c&name=help%20wanted)
-[![duplicate](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=ccc&name=duplicate&maxAge=5)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=ccc&name=duplicate)
-[![question](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=cc317c&name=question&maxAge=5)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=cc317c&name=question)
-[![question](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=fff&name=wontfix&maxAge=5)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=fff&name=wontfix)
+[![enhancement](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=84b6eb&name=enhancement&maxAge=100)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=84b6eb&name=enhancement)
+[![bug](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=ee0701&name=bug&maxAge=100)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=ee0701&name=bug)
+[![help wanted](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=128a0c&name=help%20wanted&maxAge=10)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=128a0c&name=help%20wanted)
+[![duplicate](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=ccc&name=duplicate&maxAge=100)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=ccc&name=duplicate)
+[![question](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=cc317c&name=question&maxAge=100)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=cc317c&name=question)
+[![question](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=fff&name=wontfix&maxAge=100)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=fff&name=wontfix)
 
-### How to
+### Providers
+
+#### Predefined
+
+Currently there's only one predefined badge – [Github-styled label](src/main/data-sources/predefined/github-label.txt).
+
+http://badge-factory.herokuapp.com/badges/predefined/github-label?color=red&name=Bug
+
+#### Github Gist
 
 - Create new [Gist](https://gist.github.com/) that contains React SVG markup of your badge. For example, [Github label badge gist](https://gist.github.com/f1f67f6ad0c93ef298bf87ac9f20574a).
 
