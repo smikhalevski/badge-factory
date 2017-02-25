@@ -1,5 +1,5 @@
 import {requestGithub} from './requestGithub';
-import {renderSvgBadge} from '../renderSvgBadge';
+import {renderSvgBadge} from '../../renderSvgBadge';
 
 export async function createGistBadge(path, params) {
   const [gistId, fileId] = path.split('/');

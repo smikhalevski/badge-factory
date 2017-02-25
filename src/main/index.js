@@ -1,5 +1,6 @@
 import express from 'express';
-import {createGistBadge} from './data-sources/createGistBadge';
+import {createGistBadge} from './data-sources/github/createGistBadge';
+import {createPredefinedBadge} from './data-sources/predefined/createPredefinedBadge';
 
 if (DEBUG) {
   if (module.hot) {
@@ -13,7 +14,8 @@ if (DEBUG) {
 
 const {PORT = 5000} = process.env;
 const BadgeType = {
-  GIST: 'gists'
+  GIST: 'gists',
+  PREDEFINED: 'predefined'
 };
 
 startServer(PORT);
@@ -30,8 +32,15 @@ export function handleBadge(request, response, next) {
   const {params: {type, 0: path}} = request;
 
   switch (type) {
+
     case BadgeType.GIST:
       createGistBadge(path, request.query)
+          .then(svg => serveSvg(svg, request, response, next))
+          .catch(next);
+      break;
+
+    case BadgeType.PREDEFINED:
+      createPredefinedBadge(path, request.query)
           .then(svg => serveSvg(svg, request, response, next))
           .catch(next);
       break;

@@ -27,7 +27,8 @@ module.exports = {
     rules: [
       {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
       {test: /\.json$/, loader: 'hson-loader'},
-      {test: ASSET_TEST, loader: 'file-loader?name=assets/[hash:7].[ext]'}
+      {test: ASSET_TEST, loader: 'file-loader?name=assets/[hash:7].[ext]'},
+      {test: /\.txt$/, loader: 'raw-loader'}
     ]
   }
 };

@@ -2,12 +2,12 @@
 
 Tiny web service for generating badges from URL.
 
-[![enhancement](http://badge-factory.herokuapp.com/badges/gists/f1f67f6ad0c93ef298bf87ac9f20574a/github-label.jsx?color=84b6eb&name=enhancement&maxAge=5)](http://badge-factory.herokuapp.com/badges/gists/f1f67f6ad0c93ef298bf87ac9f20574a/github-label.jsx?color=84b6eb&name=enhancement)
-[![bug](http://badge-factory.herokuapp.com/badges/gists/f1f67f6ad0c93ef298bf87ac9f20574a/github-label.jsx?color=ee0701&name=bug&maxAge=5)](http://badge-factory.herokuapp.com/badges/gists/f1f67f6ad0c93ef298bf87ac9f20574a/github-label.jsx?color=ee0701&name=bug)
-[![help wanted](http://badge-factory.herokuapp.com/badges/gists/f1f67f6ad0c93ef298bf87ac9f20574a/github-label.jsx?color=128a0c&name=help%20wanted&maxAge=5)](http://badge-factory.herokuapp.com/badges/gists/f1f67f6ad0c93ef298bf87ac9f20574a/github-label.jsx?color=128a0c&name=help%20wanted)
-[![duplicate](http://badge-factory.herokuapp.com/badges/gists/f1f67f6ad0c93ef298bf87ac9f20574a/github-label.jsx?color=ccc&name=duplicate&maxAge=5)](http://badge-factory.herokuapp.com/badges/gists/f1f67f6ad0c93ef298bf87ac9f20574a/github-label.jsx?color=ccc&name=duplicate)
-[![question](http://badge-factory.herokuapp.com/badges/gists/f1f67f6ad0c93ef298bf87ac9f20574a/github-label.jsx?color=cc317c&name=question&maxAge=5)](http://badge-factory.herokuapp.com/badges/gists/f1f67f6ad0c93ef298bf87ac9f20574a/github-label.jsx?color=cc317c&name=question)
-[![question](http://badge-factory.herokuapp.com/badges/gists/f1f67f6ad0c93ef298bf87ac9f20574a/github-label.jsx?color=fff&name=wontfix&maxAge=5)](http://badge-factory.herokuapp.com/badges/gists/f1f67f6ad0c93ef298bf87ac9f20574a/github-label.jsx?color=fff&name=wontfix)
+[![enhancement](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=84b6eb&name=enhancement&maxAge=5)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=84b6eb&name=enhancement)
+[![bug](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=ee0701&name=bug&maxAge=5)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=ee0701&name=bug)
+[![help wanted](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=128a0c&name=help%20wanted&maxAge=5)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=128a0c&name=help%20wanted)
+[![duplicate](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=ccc&name=duplicate&maxAge=5)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=ccc&name=duplicate)
+[![question](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=cc317c&name=question&maxAge=5)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=cc317c&name=question)
+[![question](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=fff&name=wontfix&maxAge=5)](http://badge-factory.herokuapp.com/badges/predefined/github-label?color=fff&name=wontfix)
 
 ### How to
 
