@@ -11,7 +11,7 @@ module.exports = {
   ],
   output: {
     path: './target/out',
-    filename: 'server.js',
+    filename: 'index.js',
     libraryTarget: 'commonjs2'
   },
   node: {

@@ -27,7 +27,7 @@
     "clean": "rm -rf target",
     "build": "npm run clean; webpack -p",
     "watch": "npm run clean; webpack --watch --progress --config webpack.watch.config.js",
-    "start": "pm2 start target/out/server.js -i 1 --name badge-factory",
+    "start": "pm2 start target/out/index.js -i 1 --name badge-factory",
     "logs": "pm2 logs badge-factory",
     "test": "jest"
   },
