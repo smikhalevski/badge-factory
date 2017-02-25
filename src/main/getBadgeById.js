@@ -1,13 +1,13 @@
 const GITHUB_LABEL = `
   <svg xmlns="http://www.w3.org/2000/svg"
-       width={Math.round(widthOfString(name)) + 5}
+       width={Math.round(widthOfString(name)) + 6}
        height="18">
     <rect fill={'#' + color}
           rx="2"
           ry="2"
           width="100%"
           height="18"/>
-    <text fill={Color('#' + color).luminosity() > .5 ? '#000' : '#fff'}
+    <text fill={Color('#' + color).luminosity() > .4 ? '#000' : '#fff'}
           x="50%"
           y="13"
           textAnchor="middle"
