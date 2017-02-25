@@ -1,5 +1,5 @@
-import express from 'express';
-import {handleRequest} from './handleRequest';
+import {default as express, Router} from 'express';
+import {handleGenerateBadge} from './handleGenerateBadge';
 
 if (DEBUG) {
   if (module.hot) {
@@ -17,8 +17,13 @@ startServer();
 
 export function startServer() {
   console.log(`Staring on port ${PORT}`);
+
+  const router = Router();
+
   express()
       .use(express.static(__dirname))
-      .use(handleRequest)
+      .use(router)
       .listen(PORT);
+
+  router.get('/badges/:badgeSpec', handleGenerateBadge);
 }

@@ -27,15 +27,14 @@
     "clean": "rm -rf target",
     "build": "npm run clean; webpack -p",
     "watch": "npm run clean; webpack --watch --progress --config webpack.watch.config.js",
-    "start": "node ./target/out/server.js",
+    "start": "pm2 start target/out/server.js -i 1 --name badge-factory",
+    "logs": "pm2 logs badge-factory",
     "test": "jest"
   },
   "dependencies": {
     "babel-core": "^6.21.0",
     "babel-traverse": "",
-    "babel-template": "",
     "babel-generator": "",
-    "babel-types": "",
     "babel-plugin-transform-regenerator": "^6.6.5",
     "babel-plugin-transform-runtime": "^6.6.0",
     "babel-preset-es2015": "^6.6.0",
@@ -49,11 +48,16 @@
     "pdfkit": "",
     "svgo": "",
     "lodash": "",
+    "request-promise": "",
+    "color": "",
+    "moment": "",
+    "safe-eval": "",
     "path-to-regexp": "",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
   "devDependencies": {
+    "pm2": "^2.4.0",
     "jest": "^18.1.0",
     "babel-jest": "^18.0.0"
   }
