@@ -1,6 +1,5 @@
 import express from 'express';
-import {createGistBadge} from './data-sources/github/createGistBadge';
-import {createPredefinedBadge} from './data-sources/predefined/createPredefinedBadge';
+import {renderGistTemplate} from './data-sources/github/renderGistTemplate';
 
 if (DEBUG) {
   if (module.hot) {
@@ -13,10 +12,6 @@ if (DEBUG) {
 }
 
 const {PORT = 5000} = process.env;
-const BadgeType = {
-  GIST: 'gists',
-  PREDEFINED: 'predefined'
-};
 
 startServer(PORT);
 
@@ -24,39 +19,24 @@ function startServer(port) {
   console.log(`Staring on port ${port}`);
   express()
       .use(express.static(__dirname))
-      .get('/badges/:type/*', handleBadge)
+      .get('/badges/gists/:gistId/:fileId', handleGist)
       .listen(port);
 }
 
-export function handleBadge(request, response, next) {
-  const {params: {type, 0: path}} = request;
-
-  switch (type) {
-
-    case BadgeType.GIST:
-      createGistBadge(path, request.query)
-          .then(svg => serveSvg(svg, request, response, next))
-          .catch(next);
-      break;
-
-    case BadgeType.PREDEFINED:
-      createPredefinedBadge(path, request.query)
-          .then(svg => serveSvg(svg, request, response, next))
-          .catch(next);
-      break;
-
-    default:
-      new Error(`Data source ${type} does not exist`);
-  }
+function handleGist(request, response, next) {
+  const {gistId, fileId} = request.params;
+  const {maxAge, ...query} = request.query;
+  renderGistTemplate(gistId, fileId, query)
+      .then(svg => sendContent(svg, {maxAge}, response))
+      .then(next)
+      .catch(next);
 }
 
-export function serveSvg(svg, request, response, next) {
-  const {maxAge = 3600} = request.query;
+export function sendContent(content, {maxAge}, response) {
   response
       .set({
         'Content-Type': 'image/svg+xml',
         'Cache-Control': `public, max-age=${maxAge}`
       })
-      .send(svg);
-  next();
+      .send(content);
 }

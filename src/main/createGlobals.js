@@ -1,22 +1,16 @@
-import path from 'path';
+import React from 'react';
 import pick from 'lodash/pick';
-import PDFDocument from 'pdfkit';
 import parse from 'tinycolor2';
-import sfBoldPath from './fonts/San-Francisco-Bold.ttf';
-
-const PDF = new PDFDocument;
-
-const FontFamily = {
-  HELVETICA: 'Helvetica',
-  SAN_FRANCISCO_BOLD: 'San Francisco Bold'
-};
+import {widthOfString} from './widthOfString';
 
 const ColorFormat = {
   HEX: 'hex'
 };
 
-export function createContext() {
+export function createGlobals() {
   return {
+    React: {createElement: ::React.createElement},
+
     isFinite,
     isNaN,
     parseFloat,
@@ -38,23 +32,6 @@ export function createContext() {
     saturate:   (color, amount = 10) => parse(color).saturate(amount).toString(ColorFormat.HEX),
     spin:       (color, amount =  0) => parse(color).spin(amount).toString(ColorFormat.HEX),
 
-    widthOfString(value, fontSize = 12, fontFamily = FontFamily.SAN_FRANCISCO_BOLD) {
-      switch (fontFamily) {
-        case FontFamily.HELVETICA:
-          break;
-
-        case FontFamily.SAN_FRANCISCO_BOLD:
-          fontFamily = path.resolve(__dirname, sfBoldPath);
-          break;
-
-        default:
-          throw new Error(`Font family ${fontFamily} does not exist`);
-      }
-
-      return PDF
-          .font(fontFamily)
-          .fontSize(fontSize)
-          .widthOfString(value);
-    }
+    widthOfString
   };
 }

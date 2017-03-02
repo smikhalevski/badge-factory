@@ -1,7 +1,6 @@
 const fs = require('fs');
 const webpack = require('webpack');
-
-const ASSET_TEST = /\.(jpg|png|gif|svg|ttf|woff)$/i;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   target: 'node',
@@ -20,15 +19,16 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({DEBUG: true}),
     new webpack.HotModuleReplacementPlugin,
-    new webpack.NamedModulesPlugin
+    new webpack.NamedModulesPlugin,
+    new CopyWebpackPlugin([
+      {from: './src/main/fonts', to: 'fonts'},
+    ])
   ],
   externals: fs.readdirSync('node_modules'),
   module: {
     rules: [
       {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
-      {test: /\.json$/, loader: 'hson-loader'},
-      {test: ASSET_TEST, loader: 'file-loader?name=assets/[hash:7].[ext]'},
-      {test: /\.txt$/, loader: 'raw-loader'}
+      {test: /\.json$/, loader: 'hson-loader'}
     ]
   }
 };
