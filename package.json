@@ -25,7 +25,7 @@
   "scripts": {
     "postinstall": "npm run build",
     "clean": "rm -rf target",
-    "build": "npm run clean; webpack -p",
+    "build": "npm run clean; webpack -d",
     "watch": "npm run clean; webpack --watch --progress --config webpack.watch.config.js",
     "start": "pm2 start target/out/index.js -i 1 --name badge-factory",
     "logs": "pm2 logs badge-factory",
@@ -41,7 +41,6 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "webpack": "beta",
-    "copy-webpack-plugin": "",
     "babel-loader": "^6.2.10",
     "hson-loader": "",
     "file-loader": "",
@@ -54,8 +53,9 @@
     "request-promise": "",
     "request": "",
     "tinycolor2": "",
-    "safe-eval": "",
     "react": "^15.3.2",
+    "fs-extra": "",
+    "regenerator-runtime": "",
     "react-dom": "^15.3.2"
   },
   "devDependencies": {

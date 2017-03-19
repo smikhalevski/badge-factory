@@ -3,10 +3,18 @@ import {renderTemplate} from '../main/renderTemplate';
 
 describe('renderTemplate', () => {
 
-  test('does not provide original React object to template context', async () => {
-    const svg = await renderTemplate(`<svg>{(function(){React.foo = 123})()}</svg>`);
-
+  test('does not provide original React object to template context', async() => {
+    const template = {
+      code: '"use strict"; React.foo = 123; React.createElement("svg");',
+      params: []
+    };
+    const code = await renderTemplate(template);
     expect(React.foo).toBeUndefined();
-    expect(svg).toEqual('<svg/>');
+    expect(code).toEqual('<svg/>');
+  });
+
+  test('fails if non element value is returned from template', done => {
+    const template = {code: '123', params: []};
+    renderTemplate(template).catch(error => done());
   });
 });

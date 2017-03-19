@@ -1,28 +1,16 @@
 // @flow
+import type {Template} from './parseTemplate';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
-import safeEval from 'safe-eval';
-import Svgo from 'svgo';
-import {parseTemplate} from './parseTemplate';
-import {createGlobals} from './createGlobals';
+import {runInNewContext} from 'vm';
+import {createSandbox} from './createSandbox';
+import {optimizeSvgPromise} from './utils/optimizeSvgPromise';
 
-const SVGO = new Svgo();
-
-export function optimize(svg: string, svgo: Object = SVGO): Promise<string> {
-  return new Promise((resolve, reject) => {
-    svgo.optimize(svg, result => {
-      const {error, data} = result;
-      if (error) {
-        reject(error);
-      } else {
-        resolve(data);
-      }
-    })
-  });
-}
-
-export function renderTemplate(source: string, values: Object = {}): Promise<string> {
-  const {code} = parseTemplate(source);
-  const element = safeEval(code, {...values, ...createGlobals()});
-  return optimize(ReactDOM.renderToStaticMarkup(element));
+export async function renderTemplate({code}: Template, values: Object = {}, options, Object): Promise<string> {
+  const sandbox = {...createSandbox(), ...values};
+  const element = await runInNewContext(code, sandbox, options);
+  if (React.isValidElement(element)) {
+    return optimizeSvgPromise(ReactDOM.renderToStaticMarkup(element));
+  }
+  throw new Error('Expected template to return a valid React element');
 }

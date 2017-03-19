@@ -4,7 +4,12 @@ import {transform} from 'babel-core';
 import traverse from 'babel-traverse';
 import generate from 'babel-generator';
 
-export function parseTemplate(source: string): {code: string, params: string[]} {
+export type Template = {
+  code: string,
+  params: string[]
+};
+
+export function parseTemplate(source: string): Template {
   const ast = parse(source, {plugins: ['jsx']});
   const params = new Set;
   traverse(ast, {
@@ -15,6 +20,6 @@ export function parseTemplate(source: string): {code: string, params: string[]} 
       params.add(name);
     }
   });
-  const {code} = transform(generate(ast).code, {presets: ['react']});
+  const {code} = transform(generate(ast).code, {presets: ['react', 'es2015', 'stage-0']});
   return {code, params: [...params]};
 }

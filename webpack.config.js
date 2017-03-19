@@ -1,6 +1,5 @@
 const fs = require('fs');
 const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   target: 'node',
@@ -14,10 +13,7 @@ module.exports = {
     __dirname: false
   },
   plugins: [
-    new webpack.DefinePlugin({DEBUG: true}),
-    new CopyWebpackPlugin([
-      {from: './src/main/fonts', to: 'fonts'},
-    ])
+    new webpack.DefinePlugin({DEBUG: true})
   ],
   externals: fs.readdirSync('node_modules'),
   module: {

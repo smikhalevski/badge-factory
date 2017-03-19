@@ -2,7 +2,7 @@ import {requestGitHub, GitHubEndpoint} from './requestGitHub';
 import {renderTemplate} from '../../renderTemplate';
 
 export async function renderGistTemplate(gistId, fileId, query) {
-  const gist = await requestGitHub(GitHubEndpoint.GIST, {...query, parts: {gistId}});
+  const gist = await requestGitHub(GitHubEndpoint.GIST, {...query, tokens: {gistId}});
 
   if (fileId in gist.files) {
     return renderTemplate(gist.files[fileId].content, query);
