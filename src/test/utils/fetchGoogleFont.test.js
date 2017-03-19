@@ -11,17 +11,33 @@ describe('fetchGoogleFont', () => {
     expect(font.widthOfString('foo', 10)).toBeCloseTo(14.95);
   });
 
-  test('', async() => {
+  test('can be used in template', async() => {
 
     const template = parseTemplate(`
       async function render() {
         const font = await GoogleFont.loadFont('Baloo Bhaina');
-        
+        const fontSize = 20;
+        const text = 'Fooo';
+      
         return (
-          <svg width="100" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <svg width={Math.round(font.widthOfString(text, fontSize) + 10)}
+               height={fontSize * 1.3}
+               version="1.1"
+               xmlns="http://www.w3.org/2000/svg">
             <EmbeddedFont font={font}/>
-            <text x="50%" y="50%" textAnchor="middle" fontFamily={font.font.family}>
-              Fooo
+            <rect x="0"
+                  y="0"
+                  rx="4"
+                  ry="4"
+                  width="100%"
+                  height="100%"
+                  fill="#dedede"/>
+            <text x="50%"
+                  y={fontSize}
+                  textAnchor="middle"
+                  fontFamily={font.font.family}
+                  fontSize={fontSize}>
+              {text}
             </text>
           </svg>
         );
