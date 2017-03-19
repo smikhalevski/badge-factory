@@ -1,13 +1,9 @@
 // @flow
+import type {Template} from './types';
 import {parse} from 'babylon';
 import {transform} from 'babel-core';
 import traverse from 'babel-traverse';
 import generate from 'babel-generator';
-
-export type Template = {
-  code: string,
-  params: string[]
-};
 
 export function parseTemplate(source: string): Template {
   const ast = parse(source, {plugins: ['jsx']});
