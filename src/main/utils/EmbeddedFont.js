@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function EmbeddedFont({font}) {
+export function EmbeddedSvgFont({font}) {
   return (
     <defs>
       <style>
@@ -8,7 +8,7 @@ export function EmbeddedFont({font}) {
           @font-face {
             font-family: "${font.font.family}";
             font-weight: ${font.font.weight};
-            src: url("data:application/x-font-ttf;charset=utf-8;base64,${font.toBase64()}");
+            src: url("data:application/x-font-ttf;charset=utf-8;base64,${font.fff.write({type: 'ttf'}).toString('base64')}");
           }
         `}
       </style>

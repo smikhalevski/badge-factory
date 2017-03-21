@@ -24,7 +24,7 @@ describe('fetchGoogleFont', () => {
                height={fontSize * 1.3}
                version="1.1"
                xmlns="http://www.w3.org/2000/svg">
-            <EmbeddedFont font={font}/>
+            <EmbeddedSvgFont font={font}/>
             <rect x="0"
                   y="0"
                   rx="4"
@@ -47,6 +47,8 @@ describe('fetchGoogleFont', () => {
     `);
 
     const code = await renderTemplate(template);
+
+    console.log(code)
 
     fs.outputFileSync(path.resolve('./font-cache/test.svg'), code);
   });

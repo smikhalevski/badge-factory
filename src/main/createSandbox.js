@@ -1,7 +1,7 @@
 import React from 'react';
 import Color from 'tinycolor2';
 import {GoogleFont} from './utils/fetchGoogleFont';
-import {EmbeddedFont} from './utils/EmbeddedFont';
+import {EmbeddedSvgFont} from './utils/EmbeddedFont';
 import regeneratorRuntime from 'regenerator-runtime';
 
 export function createSandbox() {
@@ -9,7 +9,7 @@ export function createSandbox() {
     React: {createElement: ::React.createElement},
     Math,
     GoogleFont,
-    EmbeddedFont,
+    EmbeddedSvgFont,
     Promise,
     Color,
     regeneratorRuntime,

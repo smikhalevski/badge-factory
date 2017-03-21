@@ -10,7 +10,7 @@ describe('renderTemplate', () => {
     };
     const code = await renderTemplate(template);
     expect(React.foo).toBeUndefined();
-    expect(code).toEqual('<svg/>');
+    expect(code).toEqual('<svg></svg>');
   });
 
   test('fails if non element value is returned from template', done => {

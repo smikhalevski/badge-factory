@@ -1,5 +1,5 @@
 // @flow
-export type Template = {
+export type TemplateType = {
   /**
    * ES5 code of the template.
    */
@@ -11,7 +11,7 @@ export type Template = {
   params: string[]
 };
 
-export type GoogleFont = {
+export type GoogleFontType = {
   family: string,
   files: {[key: string]: string}
 };

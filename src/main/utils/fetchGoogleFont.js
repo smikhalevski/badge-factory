@@ -3,6 +3,7 @@ import requestPromise from 'request-promise';
 import path from 'path';
 import fs from 'fs-extra';
 import PDFDocument from 'pdfkit';
+import {Font} from 'fonteditor-core';
 
 const GOOGLE_FONTS_API_KEY = 'AIzaSyDAv8pWwGu2Yp2QoYLqN3ztkhc7Mqlx9Xw';
 const FONT_CACHE_DIR = 'font-cache';
@@ -37,10 +38,16 @@ export async function fetchGoogleFont(family, variant = 'regular') {
 
 export async function getGoogleFont(family, vvv) {
   const {font, variant, buffer} = await fetchGoogleFont(family, vvv);
+
+  // const fff = new Font(buffer, {type: 'ttf'});
+  const fff = new Font(buffer, {type: 'ttf', subset: [...'o'].map(char => char.charCodeAt(0))});
+
+  console.log(fff)
+
   vvv = variant;
   const fontPath = path.resolve(FONT_CACHE_DIR, path.basename(font.files[vvv]));
   fs.outputFileSync(fontPath, buffer);
-  return {font, fontPath, vvv, base64: buffer.toString('base64')}
+  return {font, fontPath, vvv, base64: buffer.toString('base64'), fff}
 }
 
 export class GoogleFont {
