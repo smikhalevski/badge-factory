@@ -1,30 +1,32 @@
+import 'isomorphic-fetch';
 import fs from 'fs-extra';
 import path from 'path';
-import {GoogleFont, fetchGoogleFont} from '../../main/utils/fetchGoogleFont';
 import {renderTemplate} from '../../main/renderTemplate';
 import {parseTemplate} from '../../main/parseTemplate';
+import {optimizeSVG} from '../../main/utils/optimizeSVG';
 
-describe('fetchGoogleFont', () => {
-
-  test('can fetch Google Font by family name', async() => {
-    const font = await GoogleFont.loadFont('Alegreya Sans SC');
-    expect(font.widthOfString('foo', 10)).toBeCloseTo(14.95);
-  });
+describe('fonts', () => {
 
   test('can be used in template', async() => {
 
     const template = parseTemplate(`
       async function render() {
-        const font = await GoogleFont.loadFont('Baloo Bhaina');
-        const fontSize = 20;
         const text = 'Fooo';
+        
+        const font = await Font.createGoogleFont('Baloo Bhaina')
+        
+        // Reduce font size via subsetting
+        const fontSubset = await font.subset(text);
+        const fontSize = 20;
       
         return (
-          <svg width={Math.round(font.widthOfString(text, fontSize) + 10)}
+          <svg width={Math.round(fontSubset.widthOfString(text, fontSize) + 10)}
                height={fontSize * 1.3}
                version="1.1"
                xmlns="http://www.w3.org/2000/svg">
-            <EmbeddedSvgFont font={font}/>
+            <defs>
+              <EmbeddedFont font={fontSubset}/>
+            </defs>
             <rect x="0"
                   y="0"
                   rx="4"
@@ -35,7 +37,7 @@ describe('fetchGoogleFont', () => {
             <text x="50%"
                   y={fontSize}
                   textAnchor="middle"
-                  fontFamily={font.font.family}
+                  fontFamily={font.familyName}
                   fontSize={fontSize}>
               {text}
             </text>
@@ -46,10 +48,13 @@ describe('fetchGoogleFont', () => {
       render();
     `);
 
-    const code = await renderTemplate(template);
+    const svg = await renderTemplate(template);
 
-    console.log(code)
+    const optimizedSvg = await optimizeSVG(svg);
 
-    fs.outputFileSync(path.resolve('./font-cache/test.svg'), code);
+
+    // console.log(code)
+
+    fs.outputFileSync(path.resolve('./font-cache/test.svg'), optimizedSvg);
   });
 });

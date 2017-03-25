@@ -1,7 +1,7 @@
 // @flow
-import Svgo from 'svgo';
+import SVGO from 'svgo';
 
-export function optimizeSvgPromise(source: string, svgo?: Object = new Svgo): Promise<string> {
+export function optimizeSVG(source: string, svgo?: Object = new SVGO): Promise<string> {
   return new Promise((resolve, reject) => {
     svgo.optimize(source, result => {
       const {error, data} = result;

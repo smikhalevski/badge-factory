@@ -47,19 +47,15 @@
     "raw-loader": "",
     "express": "^4.14.0",
     "glob": "",
-    "pdfkit": "",
     "svgo": "",
     "lodash": "",
-    "request-promise": "",
-    "request": "",
     "tinycolor2": "",
     "invariant": "",
     "react": "^15.3.2",
     "fs-extra": "",
     "regenerator-runtime": "",
     "react-dom": "^15.3.2",
-    "fonteditor-core": "0.0.35",
-    "stream-to-promise": ""
+    "fonteditor-core": "0.0.35"
   },
   "devDependencies": {
     "pm2": "^2.4.0",

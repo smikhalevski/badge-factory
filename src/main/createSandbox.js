@@ -1,17 +1,16 @@
 import React from 'react';
 import Color from 'tinycolor2';
-import {GoogleFont} from './utils/fetchGoogleFont';
-import {EmbeddedSvgFont} from './utils/EmbeddedFont';
 import regeneratorRuntime from 'regenerator-runtime';
+import {EmbeddedFont} from './fonts/EmbeddedFont';
+import {createGoogleFont} from './fonts/google-font/createGoogleFont';
 
 export function createSandbox() {
   return {
     React: {createElement: ::React.createElement},
     Math,
-    GoogleFont,
-    EmbeddedSvgFont,
-    Promise,
+    EmbeddedFont,
     Color,
+    Font: {createGoogleFont},
     regeneratorRuntime,
 
     isFinite,

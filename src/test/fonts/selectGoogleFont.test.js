@@ -1,5 +1,5 @@
-import {selectGoogleFont} from '../main/selectGoogleFont';
-import {GoogleFontVariant} from '../main/api/GoogleFontVariant';
+import {selectGoogleFont} from '../../main/fonts/google-font/selectGoogleFont';
+import {GoogleFontVariant} from '../../main/api/GoogleFontVariant';
 
 describe('selectGoogleFont', () => {
 
