@@ -1,8 +1,8 @@
 // @flow
-import type {TTFFont} from './TTFFont';
+import type {TtfFont} from '../../main2/fontkit/TTFFont';
 
 export function widthOfString(
-    font: TTFFont,
+    font: TtfFont,
     string: string,
     fontSize?: number = 10,
     features?: []

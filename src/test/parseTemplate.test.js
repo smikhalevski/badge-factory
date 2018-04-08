@@ -1,6 +1,6 @@
 import React from 'react';
 import {runInNewContext} from 'vm';
-import {parseTemplate} from '../main/parseTemplate';
+import {parseTemplate} from '../main2/parseTemplate';
 
 describe('parseTemplate', () => {
 

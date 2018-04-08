@@ -1,5 +1,5 @@
 import {requestGitHub, GitHubEndpoint} from './requestGitHub';
-import {renderTemplate} from '../../renderTemplate';
+import {renderTemplate} from '../../../main2/renderTemplate';
 
 export async function renderGistTemplate(gistId, fileId, query) {
   const gist = await requestGitHub(GitHubEndpoint.GIST, {...query, tokens: {gistId}});

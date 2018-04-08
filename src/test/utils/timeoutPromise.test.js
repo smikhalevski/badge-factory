@@ -1,5 +1,5 @@
 import React from 'react';
-import {timeoutPromise} from '../../main/utils/timeoutPromise';
+import {timeoutPromise} from '../../main2/utils/timeoutPromise';
 
 describe('timeoutPromise', () => {
 

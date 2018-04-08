@@ -1,5 +1,6 @@
 import express from 'express';
 import {renderGistTemplate} from './data-sources/github/renderGistTemplate';
+import {handleIndex} from './handleIndex';
 
 if (DEBUG) {
   if (module.hot) {
@@ -19,6 +20,7 @@ function startServer(port) {
   console.log(`Staring on port ${port}`);
   express()
       .use(express.static(__dirname))
+      .get('/', handleIndex)
       .get('/badges/gists/:gistId/:fileId', handleGist)
       .listen(port);
 }

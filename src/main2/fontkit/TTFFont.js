@@ -32,7 +32,7 @@ declare class TTFFont {
   /**
    * the offset from the normal underline position that should be used.
    */
-  UnderlinePosition: number;
+  underlinePosition: number;
 
   /**
    * The weight of the underline that should be used.

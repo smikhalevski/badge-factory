@@ -1,9 +1,9 @@
 import 'isomorphic-fetch';
 import fs from 'fs-extra';
 import path from 'path';
-import {renderTemplate} from '../../main/renderTemplate';
-import {parseTemplate} from '../../main/parseTemplate';
-import {optimizeSVG} from '../../main/utils/optimizeSVG';
+import {renderTemplate} from '../../main2/renderTemplate';
+import {parseTemplate} from '../../main2/parseTemplate';
+import {optimizeSvg} from '../../main2/utils/optimizeSvg';
 
 describe('fonts', () => {
 
@@ -50,7 +50,7 @@ describe('fonts', () => {
 
     const svg = await renderTemplate(template);
 
-    const optimizedSvg = await optimizeSVG(svg);
+    const optimizedSvg = await optimizeSvg(svg);
 
 
     // console.log(code)

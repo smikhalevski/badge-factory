@@ -55,7 +55,8 @@
     "fs-extra": "",
     "regenerator-runtime": "",
     "react-dom": "^15.3.2",
-    "fonteditor-core": "0.0.35"
+    "fontkit": "",
+    "stream-to-promise": ""
   },
   "devDependencies": {
     "pm2": "^2.4.0",

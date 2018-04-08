@@ -1,4 +1,4 @@
-import {replacePathTokens} from '../../main/utils/replacePathTokens';
+import {replacePathTokens} from '../../main2/utils/replacePathTokens';
 
 describe('replacePathTokens', () => {
 

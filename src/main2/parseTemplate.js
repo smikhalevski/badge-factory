@@ -31,5 +31,5 @@ export function parseTemplate(source: string): Template {
     }
   });
   const {code} = transform(generate(ast).code, {presets: TEMPLATE_PRESETS});
-  return {code, params: [...params]};
+  return {code, params: Array.from(params)};
 }

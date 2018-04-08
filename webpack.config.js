@@ -13,7 +13,7 @@ module.exports = {
     __dirname: false
   },
   plugins: [
-    new webpack.DefinePlugin({DEBUG: true})
+    new webpack.DefinePlugin({DEBUG: false})
   ],
   externals: fs.readdirSync('node_modules'),
   module: {

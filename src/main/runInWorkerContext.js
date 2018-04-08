@@ -1,4 +1,4 @@
-import {timeoutPromise} from './utils/timeoutPromise';
+import {timeoutPromise} from '../main2/utils/timeoutPromise';
 // @flow
 export function runInWorkerContext(
     code: string,
